@@ -20,7 +20,8 @@ db.once('open', () => {
 
 //Setting up logging
 let log_stream = fs.createWriteStream(`${new Date().toDateString()}.log`, {flags: 'a'})
-app.use(morgan(':date[web] :method :url :status :response-time ms', {stream: log_stream}))
+app.use(morgan(':date[web] :method :url :status :response-time ms', {stream: log_stream})) //log to file
+app.use(morgan(log_level)) //log to terminal
 
 //Setting up express routes
 const routes = require('./routes')(app, mongoose)
