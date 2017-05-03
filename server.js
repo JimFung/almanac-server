@@ -24,7 +24,7 @@ app.use(morgan(':date[web] :method :url :status :response-time ms', {stream: log
 app.use(morgan(log_level)) //log to terminal
 
 //Setting up express routes
-const routes = require('./routes')(app, mongoose)
+require('./routes')(app, mongoose)
 
 //Starting the server
 app.listen(PORT, () => {
