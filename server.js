@@ -27,6 +27,6 @@ app.use(morgan(log_fmt)) //log to terminal
 require('./routes')(app, mongoose)
 
 //Starting the server
-app.listen(process.env.ALMANAC_PORT, () => {
-  console.log(`Server running at ${process.env.ALMANAC_PORT}`)
+app.listen(process.env.PORT || 15322, () => {
+  console.log(`Server running at ${process.env.PORT}`)
 })
