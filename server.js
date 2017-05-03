@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-const { dbAddr, PORT } = require('./config')
+const { dbAddr, PORT, log_level } = require('./config')
 
 //Setting up DB settings
 mongoose.Promise = global.Promise
@@ -18,7 +18,7 @@ db.once('open', () => {
 })
 
 //Setting up middleware
-app.use(morgan('dev'))
+app.use(morgan(log_level))
 
 //Setting up express routes
 const routes = require('./routes')(app, mongoose)
